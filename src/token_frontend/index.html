@@ -4,16 +4,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width" />
+<!-- index.html -->
+<meta http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    connect-src 'self' http://localhost:* https://icp0.io https://*.icp0.io https://icp-api.io;
+    img-src 'self' data: blob:;
+    script-src 'self' 'unsafe-inline' 'unsafe-eval';
+    style-src 'self' 'unsafe-inline';
+  ">
+
   <title>IC Hello Starter</title>
   <base href="/" />
   <link rel="icon" href="/favicon.ico" />
 </head>
 
 <body>
-  <div class="browser-warning">
-    ⚠️ If this page appears broken, try reloading. If the problem persists, try switching browsers; Chrome or
-    Firefox are recommended.
-  </div>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
 </body>

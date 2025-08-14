@@ -1,3 +1,11 @@
-service : {
-    "greet": (text) -> (text) query;
+type Metadata = record { decimals : nat8; name : text; symbol : text };
+type Result = variant { Ok; Err : text };
+service : () -> {
+  balance_of : (principal) -> (nat) query;
+  current_user : () -> (principal) query;
+  get_creator : () -> (principal) query;
+  get_metadata : () -> (Metadata) query;
+  mint : (principal, nat) -> (Result);
+  total_supply : () -> (nat) query;
+  transfer : (principal, nat) -> (Result);
 }
